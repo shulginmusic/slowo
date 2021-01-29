@@ -31,8 +31,8 @@ public class DeleteMode {
             System.out.println("No words to delete");
             return wordBank;
         }
-        System.out.println("Which word (English) would you like to delete?");
         displayWords(wordBank);
+        System.out.print("Which word (English) would you like to delete? ");
         String wordToDelete = scanner.next();
         wordBank.words.remove(wordToDelete);
         return wordBank;
