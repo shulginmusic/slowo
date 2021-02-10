@@ -64,6 +64,7 @@ public class SlowoController {
     public static void saveWordBank(WordBank wordBank) throws IOException {
         ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("wordbank.txt"));
         out.writeObject(wordBank);
+        out.close();
     }
 
     public static WordBank loadWordBank(File wordBankFile) throws IOException,
@@ -72,6 +73,7 @@ public class SlowoController {
         if (wordBankFile.length() > 0) {
             ObjectInputStream in = new ObjectInputStream(new FileInputStream("wordbank.txt"));
             wordBank = (WordBank) in.readObject();
+            in.close();
             return wordBank;
         } else {
             return new WordBank(); //create new one if file is empty
